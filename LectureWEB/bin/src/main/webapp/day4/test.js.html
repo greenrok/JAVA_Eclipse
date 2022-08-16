@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function test_while() {
+		let number = 1;
+		while(true) {
+			console.log(number);
+			if (number === 10) {
+				break;
+			}
+			number = number + 1;
+		}
+	}
+	test_while();
+	
+	function test_if() {
+		if ("1"=== 1) {
+			console.log("true");
+		} else {
+			console.log("false");
+		}
+	}
+	test_if();
+	
+	function test_for() {
+		for (i=0; i<10; i++) {
+			console.log(i);
+		}
+	}
+	test_for();
+
+	function split_number(num) {
+		let number = num;
+		let split = number % 10;
+		console.log(split);
+		number = parseInt(number / 10);
+		console.log(number);
+		number1 = parseInt("100");
+		console.log(number*10);
+	}
+
+	function test() {
+		console.log("hello");
+		alert("hello");
+		let number = 123;
+		console.log(number);
+		let name = "kim";
+		console.log(name);
+	}
+	
+	function test1(name) {
+		console.log(name);
+	}
+	
+	split_number(321);
+	/* test1("kim"); */
+</script>
+</head>
+<body>
+
+</body>
+</html>

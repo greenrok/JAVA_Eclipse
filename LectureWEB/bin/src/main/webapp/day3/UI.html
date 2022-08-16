@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Make UI</title>
+<style>
+table, tr, td {
+	border: 1px solid black;
+}
+
+/* input[type=text] {
+	transition: width 0.4s ease;
+} */
+
+table {
+margin-top: 10px;
+	border-collapse: collapse;
+}
+
+td.right {
+	/* width: 100px; */
+	text-align: right;
+	padding: 10px;
+}
+
+#submit {
+	text-align: center;
+}
+
+div {
+	border-radius : 5px;
+	background-color: #f2f2f2;
+	padding : 20px;
+}
+</style>
+</head>
+<body>
+	<table>
+	<form>
+		<tr>
+			<th>구분</th>
+			<th>입력태그</th>
+			<th>비고</th>
+		</tr>
+		<tr>
+			<td class="right">아이디</td>
+			<td>
+				<input type="text" value="user">
+			</td>
+			<td id="submit">
+				<input type="submit">
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="right">언어</td>
+			<td>
+				<input type="radio" value="lang" checked="checked">One<input type="radio" value="lang">Two<input type="radio" value="lang">Three
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="right">툴</td>
+			<td>
+				<input type="checkbox" value="tool" checked="checked">One<input type="checkbox" value="tool">Two<input type="checkbox" value="tool">Three
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="right">선택</td>
+			<td>
+				<select name="choice">
+					<option selected="selected">One
+					<option>Two
+					<option>Three
+				</select>
+			<td></td>
+		</tr>
+
+		<!-- <tr>
+			<td><input type="hidden">
+		</td></tr> -->
+		<tr>
+			<td class="right">버튼</td>
+			<td>
+				<input type="button" value="It's a button">
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="right">자기소개</td>
+			<td colspan="2">
+				<textarea rows="5" cols="40"></textarea>
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td colspan="3" id="submit">
+				<input type="submit">
+			</td>
+			
+		</tr>
+		</form>
+	</table>
+</body>
+</html>

@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+
+body {
+	display: flex;
+	justify-content: center;
+}
+
+table {
+	width: 80%;
+	margin-top: 50px;
+}
+
+td, th {
+	border-bottom: 1px solid #ddd;
+	text-align: center;
+}
+
+tr:hover {
+	background-color: coral;
+}
+
+tr:nth-child(odd) {
+	background-color: #f2f2f2;
+}
+
+th {
+	background-color: #04AA6D;
+	color: white;
+}
