@@ -12,6 +12,3 @@ function registEvent() {
 	}
 }
 
-function checkCheckbox() {
-	
-}
