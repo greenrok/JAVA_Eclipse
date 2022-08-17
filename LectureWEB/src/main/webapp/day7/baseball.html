@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Play BaseBall</title>
+<script>
+function input(key) {
+	if (key != ENTER) return;
+	
+	if (inputElem.value.trim()) tryNumber();
+	input
+}
+	
+</script>
+</head>
+<body>
+
+	<table>
+		<tr>
+			<td>난이도</td>
+			<td>
+				<input type="button" value="상" id="game1"> <input type="button" value="중" id="game2"> <input type="button" value="하" id="game3">
+			</td>
+		</tr>
+		<tr>
+			<td>정답</td>
+		</tr>
+		<tr>
+			<td>입력</td>
+			<td>
+				<input type="text" onkeydown="input(event.keyCode)" id="InputNum"> <input type="button" value="입력" onclick="Input(ENTER)">
+			</td>
+		</tr>
+		<tr>
+			<td>결과</td><td></td>
+		</tr>
+	</table>
+</body>
+</html>
