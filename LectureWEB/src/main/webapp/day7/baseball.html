@@ -1,39 +1,314 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Play BaseBall</title>
-<script>
-function input(key) {
-	if (key != ENTER) return;
-	
-	if (inputElem.value.trim()) tryNumber();
-	input
-}
-	
-</script>
-</head>
-<body>
-
-	<table>
-		<tr>
-			<td>난이도</td>
-			<td>
-				<input type="button" value="상" id="game1"> <input type="button" value="중" id="game2"> <input type="button" value="하" id="game3">
-			</td>
-		</tr>
-		<tr>
-			<td>정답</td>
-		</tr>
-		<tr>
-			<td>입력</td>
-			<td>
-				<input type="text" onkeydown="input(event.keyCode)" id="InputNum"> <input type="button" value="입력" onclick="Input(ENTER)">
-			</td>
-		</tr>
-		<tr>
-			<td>결과</td><td></td>
-		</tr>
-	</table>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Play BaseBall</title>
+    <script src="../js/baseball.js"></script>
+    <link rel="stylesheet" href="../css/baseball.css" type="text/css" />
+  </head>
+  <body>
+    <header>
+      <h1 align="center">숫자 야구 게임</h1>
+    </header>
+    <div id="stadium">
+      <div id="ready">
+        <table>
+          <tr>
+            <td colspan="2" rowspan="2" id="title">Play Baseball</td>
+            <td>난이도</td>
+            <td>
+              상<input
+                type="radio"
+                name="level"
+                value="어려움"
+                onclick="setLevel(10)"
+              />
+              중<input
+                type="radio"
+                name="level"
+                value="중간"
+                onclick="setLevel(15)"
+              />
+              하<input
+                type="radio"
+                name="level"
+                value="쉬움"
+                onclick="setLevel(20)"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <input
+                type="button"
+                value="Start"
+                id="start"
+                onclick="start(true)"
+                disabled
+              />
+              <input
+                type="button"
+                value="Stop"
+                id="stop"
+                onclick="start(false)"
+                disabled
+              />
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div id="play">
+        <table>
+          <tr>
+            <td>정답</td>
+            <td>
+              <img
+                src="../images/glove.png"
+                alt="glove image"
+                width="50"
+                height="50"
+              />
+              <img
+                src="../images/glove.png"
+                alt="glove image"
+                width="50"
+                height="50"
+              />
+              <img
+                src="../images/glove.png"
+                alt="glove image"
+                width="50"
+                height="50"
+              />
+              <img
+                src="../images/glove.png"
+                alt="glove image"
+                width="50"
+                height="50"
+              />
+            </td>
+            <td colspan="6"><div id="tried">정답 log</div></td>
+          </tr>
+          <tr>
+            <td>입력</td>
+            <td>
+              <img
+                src="../images/ball.png"
+                alt="ball image"
+                width="50"
+                height="50"
+              />
+              <img
+                src="../images/ball.png"
+                alt="ball image"
+                width="50"
+                height="50"
+              />
+              <img
+                src="../images/ball.png"
+                alt="ball image"
+                width="50"
+                height="50"
+              />
+              <img
+                src="../images/ball.png"
+                alt="ball image"
+                width="50"
+                height="50"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <input
+                type="button"
+                class="input_button"
+                value="입력"
+                onclick="EnterNum"
+              />
+              <input
+                type="button"
+                class="input_button"
+                value="포기"
+                onclick="GiveUp"
+              />
+              <input
+                type="button"
+                class="input_button"
+                value="정답보기"
+                onclick="ShowNum"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>결과</td>
+            <td>
+              <!-- strike, ball을 보여주는 코드 -->
+            </td>
+          </tr>
+          <tr>
+            <td>번호 선택</td>
+            <td>
+              <!-- <input
+                type="button"
+                value="0"
+                class="num_button"
+                id="num0"
+                onclick="Enter(this.form.num0.value)"
+              />
+              <input
+                type="button"
+                value="1"
+                class="num_button"
+                id="num1"
+                onclick="Enter(this.form.num1.value)"
+              />
+              <input
+                type="button"
+                value="2"
+                class="num_button"
+                id="num2"
+                onclick="Enter(this.form.num2.value)"
+              />
+              <input
+                type="button"
+                value="3"
+                class="num_button"
+                id="num3"
+                onclick="Enter(this.form.num3.value)"
+              />
+              <input
+                type="button"
+                value="4"
+                class="num_button"
+                id="num4"
+                onclick="Enter(this.form.num4.value)"
+              />
+              <input
+                type="button"
+                value="5"
+                class="num_button"
+                id="num5"
+                onclick="Enter(this.form.num5.value)"
+              />
+              <input
+                type="button"
+                value="6"
+                class="num_button"
+                id="num6"
+                onclick="Enter(this.form.num6.value)"
+              />
+              <input
+                type="button"
+                value="7"
+                class="num_button"
+                id="num7"
+                onclick="Enter(this.form.num7.value)"
+              />
+              <input
+                type="button"
+                value="8"
+                class="num_button"
+                id="num8"
+                onclick="Enter(this.form.num8.value)"
+              />
+              <input
+                type="button"
+                value="9"
+                class="num_button"
+                id="num9"
+                onclick="Enter(this.form.num9.value)"
+              /> -->
+              <img
+                src="../images/num0.png"
+                alt="num0.image"
+                width="25"
+                height="25"
+                class="selectNum"
+              />
+              <img
+                src="../images/num1.png"
+                alt="num1.image"
+                width="25"
+                height="25"
+                class="selectNum"
+              />
+              <img
+                src="../images/num2.png"
+                alt="num2.image"
+                width="25"
+                height="25"
+                class="selectNum"
+              />
+              <img
+                src="../images/num3.png"
+                alt="num3.image"
+                width="25"
+                height="25"
+                class="selectNum"
+              />
+              <img
+                src="../images/num4.png"
+                alt="num4.image"
+                width="25"
+                height="25"
+                class="selectNum"
+              />
+              <img
+                src="../images/num5.png"
+                alt="num5.image"
+                width="25"
+                height="25"
+                class="selectNum"
+              />
+              <img
+                src="../images/num6.png"
+                alt="num6.image"
+                width="25"
+                height="25"
+                class="selectNum"
+              />
+              <img
+                src="../images/num7.png"
+                alt="num7.image"
+                width="25"
+                height="25"
+                class="selectNum"
+              />
+              <img
+                src="../images/num8.png"
+                alt="num8.image"
+                width="25"
+                height="25"
+                class="selectNum"
+              />
+              <img
+                src="../images/num9.png"
+                alt="num9.image"
+                width="25"
+                height="25"
+                class="selectNum"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>사용 여부</td>
+            <td>
+              <input type="checkbox" value="0" />
+              <input type="checkbox" value="1" />
+              <input type="checkbox" value="2" />
+              <input type="checkbox" value="3" />
+              <input type="checkbox" value="4" />
+              <input type="checkbox" value="5" />
+              <input type="checkbox" value="6" />
+              <input type="checkbox" value="7" />
+              <input type="checkbox" value="8" />
+              <input type="checkbox" value="9" />
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
 </html>

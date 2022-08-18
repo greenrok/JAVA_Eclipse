@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box;
+}
+
+table,
+th,
+td {
+  border: 1px solid;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.button_box {
+  font-size: 10px;
+  padding: 10px 10px;
+}
+
+input[type="text"] {
+  width: 50px;
+  height: 50px;
+  margin: 5px 5px 5px 5px;
+  font-size: 40px;
+  text-align: center;
+}
+
+input[type="checkbox"] {
+  margin-left: 6px;
+  margin-right: 6px;
+  width: 18px;
+  height: 18px;
+}
+
+.input_button {
+  width: 80px;
+  height: 40px;
+}
+
+.num_button {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+}
+
+#play {
+  display: none;
+}
+
+#ready {
+  display: flex;
+  place-items: center;
+}
