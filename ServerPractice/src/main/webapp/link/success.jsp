@@ -9,14 +9,14 @@
 <title>success Page</title>
 <style>
 table {
-	border : 1px solid;
+	border: 1px solid;
 	border-collapse: collapse;
 }
 
 th, td {
-text-align : center;
-padding : 15px;
-	border : 1px solid;
+	text-align: center;
+	padding: 15px;
+	border: 1px solid;
 	border-collapse: collapse;
 }
 </style>
@@ -31,6 +31,7 @@ padding : 15px;
 			<th>이름</th>
 			<th>이메일</th>
 			<th>시간</th>
+			<th>수정</th>
 			<th>삭제</th>
 		</tr>
 		<%
@@ -72,9 +73,17 @@ padding : 15px;
 				%>
 			</td>
 			<td>
+				<form method="post" action="./fix.jsp">
+					<input type="hidden" name="ID" value=<%=id%>> 
+					<input type="hidden" name="PWD" value=<%=pwd%>> 
+					<input type="hidden" name="NAME" value=<%=name%>> 
+					<input type="hidden" name="EMAIL" value=<%=email%>> 
+					<input type="submit" value="수정">
+				</form>
+			</td>
+			<td>
 				<form method="post" action="./delete.jsp">
-				<input type="hidden" name="userID" value=<%=id%>>
-				<input type="submit" value="삭제">
+					<input type="hidden" name="ID" value=<%=id%>> <input type="submit" value="삭제">
 				</form>
 			</td>
 		</tr>

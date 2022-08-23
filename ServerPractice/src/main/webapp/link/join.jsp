@@ -38,9 +38,9 @@
 				<td>
 					<input type="submit" value="가입하기">
 				</td>
-<!-- 				<td>
-					<input type="button" value="다시입력" id="again">
-				</td> -->
+				<td>
+					<input type="reset" value="다시입력">
+				</td>
 			</tr>
 		</table>
 	</form>

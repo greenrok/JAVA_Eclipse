@@ -74,4 +74,91 @@ public class MemberDAO {
 		
 		return flag;
 	}
+	
+	public boolean fixMember(String id, String new_id, String pwd, String name, String email) throws SQLException {
+		boolean flag = false;
+		Connection conn = ConnectionManager.getConnection();
+		String sql = "update member set id = ?, pwd = ?, user_name = ?, email = ? where id = ?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, new_id);
+		pstmt.setString(2, pwd);
+		pstmt.setString(3, name);
+		pstmt.setString(4, email);
+		pstmt.setString(5, id);
+		int affectedRow = pstmt.executeUpdate();
+		
+		if (affectedRow > 0) {
+			flag = true;
+			System.out.print("변경완료");
+		}
+		
+		pstmt.close();
+		conn.close();
+		
+		return flag;
+	}
+	
+//	public boolean fixMemberID(String id) throws SQLException {
+//		boolean flag = false;
+//		Connection conn = ConnectionManager.getConnection();
+//		String sql = "update member set id = '?'";
+//		PreparedStatement pstmt = conn.prepareStatement(sql);
+//		pstmt.setString(1, id);
+//		int affectedRow = pstmt.executeUpdate();
+//		
+//		if (affectedRow > 0) {
+//			flag = true;
+//			System.out.println("update id");
+//		}
+//				
+//		return flag;
+//	}
+//	
+//	public boolean fixMemberPwd(String pwd) throws SQLException {
+//		boolean flag = false;
+//		Connection conn = ConnectionManager.getConnection();
+//		String sql = "update member set pwd = '?'";
+//		PreparedStatement pstmt = conn.prepareStatement(sql);
+//		pstmt.setString(1, pwd);
+//		int affectedRow = pstmt.executeUpdate();
+//		
+//		if (affectedRow > 0) {
+//			flag = true;
+//			System.out.println("update pwd");
+//		}
+//				
+//		return flag;
+//	}
+//	
+//	public boolean fixMemberName(String name) throws SQLException {
+//		boolean flag = false;
+//		Connection conn = ConnectionManager.getConnection();
+//		String sql = "update member set user_name = '?'";
+//		PreparedStatement pstmt = conn.prepareStatement(sql);
+//		pstmt.setString(1, name);
+//		int affectedRow = pstmt.executeUpdate();
+//		
+//		if (affectedRow > 0) {
+//			flag = true;
+//			System.out.println("update name");
+//		}
+//				
+//		return flag;
+//	}
+//	
+//	public boolean fixMemberEmail(String email) throws SQLException {
+//		boolean flag = false;
+//		Connection conn = ConnectionManager.getConnection();
+//		String sql = "update member set email = '?'";
+//		PreparedStatement pstmt = conn.prepareStatement(sql);
+//		pstmt.setString(1, email);
+//		int affectedRow = pstmt.executeUpdate();
+//		
+//		if (affectedRow > 0) {
+//			flag = true;
+//			System.out.println("update email");
+//		}
+//				
+//		return flag;
+//	}
 }

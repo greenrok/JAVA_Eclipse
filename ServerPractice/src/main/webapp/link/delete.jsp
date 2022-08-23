@@ -9,7 +9,7 @@
 </head>
 <body>
 <%
-	String id = request.getParameter("userID");
+	String id = request.getParameter("ID");
 	System.out.println(id);
 
 	MemberDAO dao = new MemberDAO();
